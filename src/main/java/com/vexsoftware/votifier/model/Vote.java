@@ -25,6 +25,26 @@ package com.vexsoftware.votifier.model;
  */
 public class Vote {
 
+	/**
+	 * Creates a new empty vote
+	 */
+	@Deprecated
+	public Vote(){}
+
+	/**
+	 * Creates a new vote with the passed values
+	 * @param serviceName	Service which had reported the vote
+	 * @param username	Username of the user that voted.
+	 * @param address	IP Address of the voter
+	 * @param timestamp	Timestamp of the vote
+	 */
+	public Vote(String serviceName, String username, String address, String timestamp){
+		this.serviceName = serviceName;
+		this.username = username;
+		this.address = address;
+		this.timeStamp = timestamp;
+	}
+
 	/** The name of the vote service. */
 	private String serviceName;
 
@@ -49,6 +69,7 @@ public class Vote {
 	 * @param serviceName
 	 *            The new serviceName
 	 */
+	@Deprecated
 	public void setServiceName(String serviceName) {
 		this.serviceName = serviceName;
 	}
@@ -68,6 +89,7 @@ public class Vote {
 	 * @param username
 	 *            The new username
 	 */
+	@Deprecated
 	public void setUsername(String username) {
 		this.username = username.length() <= 16 ? username : username.substring(0, 16);
 	}
@@ -87,6 +109,7 @@ public class Vote {
 	 * @param address
 	 *            The new address
 	 */
+	@Deprecated
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -106,6 +129,7 @@ public class Vote {
 	 * @param timeStamp
 	 *            The new time stamp
 	 */
+	@Deprecated
 	public void setTimeStamp(String timeStamp) {
 		this.timeStamp = timeStamp;
 	}

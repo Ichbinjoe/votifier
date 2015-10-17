@@ -52,11 +52,10 @@ public class VotifierProtocol2VoteDecoder extends MessageToMessageDecoder<String
         }
 
         // Create the vote.
-        Vote vote = new Vote();
-        vote.setServiceName(votePayload.getString("serviceName"));
-        vote.setUsername(votePayload.getString("username"));
-        vote.setAddress(votePayload.getString("address"));
-        vote.setTimeStamp(votePayload.getString("timestamp"));
+        Vote vote = new Vote(votePayload.getString("serviceName"),
+                votePayload.getString("username"),
+                votePayload.getString("address"),
+                votePayload.getString("timestamp"));
 
         if (Votifier.getInstance().isDebug())
             Votifier.getInstance().getLogger().info("Received protocol v2 vote record -> " + vote);

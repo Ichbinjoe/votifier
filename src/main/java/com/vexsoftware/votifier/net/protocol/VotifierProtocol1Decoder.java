@@ -53,11 +53,7 @@ public class VotifierProtocol1Decoder extends ByteToMessageDecoder {
         position += timeStamp.length() + 1;
 
         // Create the vote.
-        final Vote vote = new Vote();
-        vote.setServiceName(serviceName);
-        vote.setUsername(username);
-        vote.setAddress(address);
-        vote.setTimeStamp(timeStamp);
+        final Vote vote = new Vote(serviceName,username,address,timeStamp);
 
         /* Warning for using v1, when v2 is standardizing. */
         if (WARNING) {
